@@ -23,6 +23,13 @@ lint:
   dependencies:
     - install
 
+flow:
+  stage: test
+  script:
+    - npm run -s flow
+  dependencies:
+    - install
+
 test:
   stage: test
   script:

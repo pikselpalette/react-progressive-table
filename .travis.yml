@@ -5,6 +5,7 @@ jobs:
     - stage: lint
       script:
         - npm run lint
+        - npm run flow
     - stage: test
       script:
         - npm run test
