@@ -3,7 +3,12 @@ const FlowPlugin = require('flow-babel-webpack-plugin');
 
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'none';
 
-const plugins = ['transform-runtime', 'add-module-exports', new FlowPlugin()];
+const plugins = [
+  'transform-runtime',
+  'add-module-exports',
+  new FlowPlugin(),
+  'transform-class-properties'
+];
 
 if (process.env.NODE_ENV === 'test') {
   plugins.push('istanbul');
