@@ -2,6 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![npm version](https://badge.fury.io/js/react-progressive-table.svg)](https://badge.fury.io/js/react-progressive-table)
+[![Build Status](https://travis-ci.org/pikselpalette/react-progressive-table.svg?branch=master)](https://travis-ci.org/pikselpalette/react-progressive-table)
 
 This component lets you render tables progressively, row by row. Useful for speeding up responsiveness when rendering large tables.
 
