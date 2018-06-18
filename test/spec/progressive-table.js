@@ -72,32 +72,15 @@ describe('ProgressiveTable', () => {
   const minHeight = () => component.find('div').instance().style.minHeight;
 
   describe('asable components', () => {
-    describe('when setting as props to semantic-ui table components', () => {
-      const table = () => component.find(Table);
-      const header = () => component.find(Table.Header);
-      const headerRow = () => header().find(Table.Row);
-      const headerCell = () => headerRow().find(Table.HeaderCell);
-      const body = () => component.find(Table.Body);
-      const bodyRow = () => body().find(Table.Row);
-      const bodyCell = () => bodyRow().find(Table.Cell);
+    const table = () => component.find(Table);
+    const header = () => component.find(Table.Header);
+    const headerRow = () => header().find(Table.Row);
+    const headerCell = () => headerRow().find(Table.HeaderCell);
+    const body = () => component.find(Table.Body);
+    const bodyRow = () => body().find(Table.Row);
+    const bodyCell = () => bodyRow().find(Table.Cell);
 
-      beforeEach(() => {
-        setupComponent({ minimumRender: 10 }, (
-          <ProgressiveTable.Table as={Table}>
-            <ProgressiveTable.Header as={Table.Header}>
-              <ProgressiveTable.Row as={Table.Row}>
-                <ProgressiveTable.HeaderCell as={Table.HeaderCell}>Dave</ProgressiveTable.HeaderCell>
-              </ProgressiveTable.Row>
-            </ProgressiveTable.Header>
-            <ProgressiveTable.Body as={Table.Body}>
-              <ProgressiveTable.Row as={Table.Row}>
-                <ProgressiveTable.Cell as={Table.Cell}>foo</ProgressiveTable.Cell>
-              </ProgressiveTable.Row>
-            </ProgressiveTable.Body>
-          </ProgressiveTable.Table>
-        ));
-      });
-
+    const renderStructureTests = () => {
       it('renders the table correctly', () => {
         expect(table()).toHaveLength(1);
       });
@@ -127,6 +110,62 @@ describe('ProgressiveTable', () => {
         expect(bodyCell()).toHaveLength(1);
         expect(bodyCell()).toHaveText('foo');
       });
+    };
+
+    describe('when setting as props to semantic-ui table elements', () => {
+      beforeEach(() => {
+        setupComponent(
+          { minimumRender: 10 },
+          (
+            <ProgressiveTable.Table as={<Table as="div" />}>
+              <ProgressiveTable.Header as={<Table.Header />}>
+                <ProgressiveTable.Row as={<Table.Row />}>
+                  <ProgressiveTable.HeaderCell as={<Table.HeaderCell />}>Dave</ProgressiveTable.HeaderCell>
+                </ProgressiveTable.Row>
+              </ProgressiveTable.Header>
+              <ProgressiveTable.Body as={<Table.Body />}>
+                <ProgressiveTable.Row as={<Table.Row />}>
+                  <ProgressiveTable.Cell as={<Table.Cell />}>foo</ProgressiveTable.Cell>
+                </ProgressiveTable.Row>
+              </ProgressiveTable.Body>
+            </ProgressiveTable.Table>
+          )
+        );
+      });
+
+      renderStructureTests();
+
+      it('passes props to the asable component', () => {
+        expect(table()).toHaveProp('as', 'div');
+      });
+
+      it('renders asable components as prop passed to element in as prop', () => {
+        expect(table().find('div')).toHaveLength(1);
+      });
+    });
+
+    describe('when setting as props to semantic-ui table components', () => {
+      beforeEach(() => {
+        setupComponent(
+          { minimumRender: 10 },
+          (
+            <ProgressiveTable.Table as={Table}>
+              <ProgressiveTable.Header as={Table.Header}>
+                <ProgressiveTable.Row as={Table.Row}>
+                  <ProgressiveTable.HeaderCell as={Table.HeaderCell}>Dave</ProgressiveTable.HeaderCell>
+                </ProgressiveTable.Row>
+              </ProgressiveTable.Header>
+              <ProgressiveTable.Body as={Table.Body}>
+                <ProgressiveTable.Row as={Table.Row}>
+                  <ProgressiveTable.Cell as={Table.Cell}>foo</ProgressiveTable.Cell>
+                </ProgressiveTable.Row>
+              </ProgressiveTable.Body>
+            </ProgressiveTable.Table>
+          )
+        );
+      });
+
+      renderStructureTests();
     });
   });
 
