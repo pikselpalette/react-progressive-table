@@ -80,5 +80,8 @@
     "stryker-jest-runner": "^0.6.0",
     "webpack": "^4.8.1",
     "webpack-cli": "^2.1.3"
+  },
+  "dependencies": {
+    "react-render-as": "^0.1.0"
   }
 }
