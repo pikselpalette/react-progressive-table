@@ -3,6 +3,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
+import { Table } from 'semantic-ui-react';
 import ProgressiveTable from '../../lib/progressive-table';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -45,14 +46,14 @@ describe('ProgressiveTable', () => {
     </ProgressiveTable.Table>
   );
 
-  const setupComponent = (overrides = {}) => {
+  const setupComponent = (overrides = {}, children = getChildren()) => {
     mockProps = {
       ...getRequiredProps(),
       ...overrides
     };
 
     component = mount((
-      <ProgressiveTable {...mockProps}>{getChildren()}</ProgressiveTable>
+      <ProgressiveTable {...mockProps}>{children}</ProgressiveTable>
     ));
 
     instance = component.instance();
@@ -69,6 +70,65 @@ describe('ProgressiveTable', () => {
 
   const tableRows = () => component.find(ProgressiveTable.Row);
   const minHeight = () => component.find('div').instance().style.minHeight;
+
+  describe('asable components', () => {
+    describe('when setting as props to semantic-ui table components', () => {
+      const table = () => component.find(Table);
+      const header = () => component.find(Table.Header);
+      const headerRow = () => header().find(Table.Row);
+      const headerCell = () => headerRow().find(Table.HeaderCell);
+      const body = () => component.find(Table.Body);
+      const bodyRow = () => body().find(Table.Row);
+      const bodyCell = () => bodyRow().find(Table.Cell);
+
+      beforeEach(() => {
+        setupComponent({ minimumRender: 10 }, (
+          <ProgressiveTable.Table as={Table}>
+            <ProgressiveTable.Header as={Table.Header}>
+              <ProgressiveTable.Row as={Table.Row}>
+                <ProgressiveTable.HeaderCell as={Table.HeaderCell}>Dave</ProgressiveTable.HeaderCell>
+              </ProgressiveTable.Row>
+            </ProgressiveTable.Header>
+            <ProgressiveTable.Body as={Table.Body}>
+              <ProgressiveTable.Row as={Table.Row}>
+                <ProgressiveTable.Cell as={Table.Cell}>foo</ProgressiveTable.Cell>
+              </ProgressiveTable.Row>
+            </ProgressiveTable.Body>
+          </ProgressiveTable.Table>
+        ));
+      });
+
+      it('renders the table correctly', () => {
+        expect(table()).toHaveLength(1);
+      });
+
+      it('renders the header correctly', () => {
+        expect(header()).toHaveLength(1);
+      });
+
+      it('renders the body correctly', () => {
+        expect(body()).toHaveLength(1);
+      });
+
+      it('renders the header rows correctly', () => {
+        expect(headerRow()).toHaveLength(1);
+      });
+
+      it('renders the body rows correctly', () => {
+        expect(bodyRow()).toHaveLength(1);
+      });
+
+      it('renders the header cells correctly', () => {
+        expect(headerCell()).toHaveLength(1);
+        expect(headerCell()).toHaveText('Dave');
+      });
+
+      it('renders the body cells correctly', () => {
+        expect(bodyCell()).toHaveLength(1);
+        expect(bodyCell()).toHaveText('foo');
+      });
+    });
+  });
 
   describe('before timers have completed', () => {
     it('renders only the first minimumRender rows', () => {
