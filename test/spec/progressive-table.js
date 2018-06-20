@@ -236,6 +236,10 @@ describe('ProgressiveTable', () => {
           expect(minHeight()).toEqual('78px');
         });
 
+        it('renders just the first minimumRender rows', () => {
+          expect(tableRows()).toHaveLength(1);
+        });
+
         describe('after it finishes rendering', () => {
           beforeEach(() => {
             jest.runAllTimers();
