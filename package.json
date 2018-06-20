@@ -1,7 +1,7 @@
 {
   "name": "react-progressive-table",
   "description": "Utility component for rendering table rows progressively",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Sam Boylett <sam.boylett@piksel.com>",
   "main": "dist/index.js",
   "scripts": {
