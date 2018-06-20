@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 0.1.2
+
+* Fix whole table re-rendering despite new children being set
+
 ## 0.1.1
 
 * Use react-render-as package
