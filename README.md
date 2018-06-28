@@ -4,6 +4,9 @@
 [![npm version](https://badge.fury.io/js/react-progressive-table.svg)](https://badge.fury.io/js/react-progressive-table)
 [![Build Status](https://travis-ci.org/pikselpalette/react-progressive-table.svg?branch=master)](https://travis-ci.org/pikselpalette/react-progressive-table)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/782fe5ad443746038fcb68a299dd4916)](https://www.codacy.com/app/samboylett/react-progressive-table?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pikselpalette/react-progressive-table&amp;utm_campaign=Badge_Grade)
+[![dependencies Status](https://david-dm.org/pikselpalette/react-progressive-table/status.svg)](https://david-dm.org/pikselpalette/react-progressive-table)
+[![devDependencies Status](https://david-dm.org/pikselpalette/react-progressive-table/dev-status.svg)](https://david-dm.org/pikselpalette/react-progressive-table?type=dev)
+[![peerDependencies Status](https://david-dm.org/pikselpalette/react-progressive-table/peer-status.svg)](https://david-dm.org/pikselpalette/react-progressive-table?type=peer)
 
 This component lets you render tables progressively, row by row. Useful for speeding up responsiveness when rendering large tables.
 
