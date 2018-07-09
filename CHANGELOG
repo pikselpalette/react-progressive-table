@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## 1.0.0
+
+* Removed dependency on react-render-as
+* Removed pseudo elements in favour of a `tr` prop
+* Increased coverage to 100%
+* Increased mutation threshold to 100%
+
 ## 0.1.2
 
 * Fix whole table re-rendering despite new children being set
