@@ -174,6 +174,16 @@ describe('ProgressiveTable', () => {
     it('has a minimum height of 0', () => {
       expect(minHeight()).toEqual('0px');
     });
+
+    describe('when component unmounts', () => {
+      beforeEach(() => {
+        component.unmount();
+      });
+
+      it('clears the timer', () => {
+        expect(clearTimeout).toHaveBeenCalledWith(instance.timer);
+      });
+    });
   });
 
   describe('after first timer completed', () => {
