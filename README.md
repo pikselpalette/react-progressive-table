@@ -25,28 +25,28 @@ import ProgressiveTable from 'react-progressive-table';
 
 const MyComponent = () => (
   <ProgressiveTable>
-    <ProgressiveTable.Table>
-      <ProgressiveTable.Header>
-        <ProgressiveTable.Row>
-          <ProgressiveTable.HeaderCell>
+    <table>
+      <thead>
+        <tr>
+          <th>
             Foo
-          </ProgressiveTable.HeaderCell>
-          <ProgressiveTable.HeaderCell>
+          </th>
+          <th>
             Bar
-          </ProgressiveTable.HeaderCell>
-        </ProgressiveTable.Row>
-      </ProgressiveTable.Header>
-      <ProgressiveTable.Body>
-        <ProgressiveTable.Row>
-          <ProgressiveTable.Cell>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
             53
-          </ProgressiveTable.Cell>
-          <ProgressiveTable.Cell>
+          </td>
+          <td>
             42
-          </ProgressiveTable.Cell>
-        </ProgressiveTable.Row>
-      </ProgressiveTable.Body>
-    </ProgressiveTable.Table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </ProgressiveTable>
 );
 ```
@@ -58,29 +58,29 @@ import ProgressiveTable from 'react-progressive-table';
 import { Table } from 'semantic-ui-react';
 
 const MyComponent = () => (
-  <ProgressiveTable>
-    <ProgressiveTable.Table as={Table}>
-      <ProgressiveTable.Header as={Table.Header>>
-        <ProgressiveTable.Row as={Table.Row}>
-          <ProgressiveTable.HeaderCell as={Table.HeaderCell}>
+  <ProgressiveTable tr={Table.Row}>
+    <Table>
+      <Table.Header>
+        <Table.Row>
+          <Table.HeaderCell>
             Foo
-          </ProgressiveTable.HeaderCell>
-          <ProgressiveTable.HeaderCell as={Table.HeaderCell}>
+          </Table.HeaderCell>
+          <Table.HeaderCell>
             Bar
-          </ProgressiveTable.HeaderCell>
-        </ProgressiveTable.Row>
-      </ProgressiveTable.Header>
-      <ProgressiveTable.Body as={Table.Body}>
-        <ProgressiveTable.Row as={Table.Row}>
-          <ProgressiveTable.Cell as={Table.Cell}>
+          </Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>
             53
-          </ProgressiveTable.Cell>
-          <ProgressiveTable.Cell as={Table.Cell}>
+          </Table.Cell>
+          <Table.Cell>
             42
-          </ProgressiveTable.Cell>
-        </ProgressiveTable.Row>
-      </ProgressiveTable.Body>
-    </ProgressiveTable.Table>
+          </Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table>
   </ProgressiveTable>
 );
 ```
