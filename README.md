@@ -7,6 +7,7 @@
 [![dependencies Status](https://david-dm.org/pikselpalette/react-progressive-table/status.svg)](https://david-dm.org/pikselpalette/react-progressive-table)
 [![devDependencies Status](https://david-dm.org/pikselpalette/react-progressive-table/dev-status.svg)](https://david-dm.org/pikselpalette/react-progressive-table?type=dev)
 [![peerDependencies Status](https://david-dm.org/pikselpalette/react-progressive-table/peer-status.svg)](https://david-dm.org/pikselpalette/react-progressive-table?type=peer)
+[![codecov](https://codecov.io/gh/pikselpalette/react-progressive-table/branch/master/graph/badge.svg)](https://codecov.io/gh/pikselpalette/react-progressive-table)
 
 This component lets you render tables progressively, row by row. Useful for speeding up responsiveness when rendering large tables.
 

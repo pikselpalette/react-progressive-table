@@ -11,7 +11,8 @@
     "flow": "./node_modules/.bin/flow",
     "test": "NODE_ENV=test jest --coverage",
     "test:watch": "NODE_ENV=test jest --watch",
-    "test:mutate": "NODE_ENV=test stryker run"
+    "test:mutate": "NODE_ENV=test stryker run",
+    "codecov": "codecov"
   },
   "jest": {
     "testMatch": [
@@ -56,6 +57,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
+    "codecov": "^3.0.4",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",

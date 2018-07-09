@@ -10,6 +10,7 @@ jobs:
       script:
         - npm run test
         - npm run test:mutate
+        - npm run codecov
     - stage: build
       script:
         - npm run prepublishOnly
