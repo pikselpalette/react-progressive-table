@@ -5,8 +5,8 @@
   "author": "Sam Boylett <sam.boylett@piksel.com>",
   "main": "dist/index.js",
   "scripts": {
-    "prepublishOnly": "NODE_ENV=production npm run build -- --optimize-minimize",
-    "build": "webpack --bail --progress --profile",
+    "prepublishOnly": "npm run build",
+    "build": "webpack",
     "lint": "eslint lib && eslint test/spec",
     "flow": "./node_modules/.bin/flow",
     "test": "NODE_ENV=test jest --coverage",
@@ -29,7 +29,7 @@
     "coverageThreshold": {
       "global": {
         "statements": 100,
-        "branches": 95,
+        "branches": 100,
         "lines": 100,
         "functions": 100
       }

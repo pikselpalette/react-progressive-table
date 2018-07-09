@@ -1,8 +1,6 @@
 const path = require('path');
 const FlowPlugin = require('flow-babel-webpack-plugin');
 
-const mode = process.env.NODE_ENV === 'production' ? 'production' : 'none';
-
 const plugins = [
   'transform-runtime',
   'add-module-exports',
@@ -15,13 +13,14 @@ if (process.env.NODE_ENV === 'test') {
 }
 
 module.exports = {
-  mode,
+  mode: 'none',
   entry: ['./lib/progressive-table.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
     libraryTarget: 'umd'
   },
+  externals: ['react', 'react-dom'],
   module: {
     rules: [
       {

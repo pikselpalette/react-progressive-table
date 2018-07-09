@@ -18,6 +18,11 @@ module.exports = (config) => {
     reporter: ['dots', 'clear-text', 'html'],
     htmlReporter: {
       baseDir: 'test/results/mutation/html'
-    }
+    },
+     thresholds: {
+       high: 100,
+       low: 100,
+       break: 100
+     }
   });
 };
