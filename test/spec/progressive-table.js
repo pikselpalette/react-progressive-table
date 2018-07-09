@@ -197,10 +197,13 @@ describe('ProgressiveTable', () => {
     });
 
     describe('after second timer completed', () => {
+      let offsetHeight;
+
       beforeEach(() => {
         Object.defineProperty(instance.element, 'offsetHeight', {
-          get: () => 78
+          get: () => offsetHeight
         });
+        offsetHeight = 78;
         jest.runOnlyPendingTimers();
         component.update();
       });
@@ -256,12 +259,17 @@ describe('ProgressiveTable', () => {
 
       describe('after third timer completed and no more rows to render', () => {
         beforeEach(() => {
+          offsetHeight = 129;
           jest.runOnlyPendingTimers();
           component.update();
         });
 
         it('renders the same amount of rows', () => {
           expect(tableRows()).toHaveLength(4);
+        });
+
+        it('sets element minHeight to its current height', () => {
+          expect(minHeight()).toEqual('129px');
         });
       });
     });
