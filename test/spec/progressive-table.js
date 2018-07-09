@@ -18,32 +18,32 @@ describe('ProgressiveTable', () => {
   });
 
   const getChildren = () => (
-    <ProgressiveTable.Table>
-      <ProgressiveTable.Header>
-        <ProgressiveTable.Row>
-          <ProgressiveTable.HeaderCell>Dave</ProgressiveTable.HeaderCell>
-          <ProgressiveTable.HeaderCell>Jamie</ProgressiveTable.HeaderCell>
-          <ProgressiveTable.HeaderCell>Joe</ProgressiveTable.HeaderCell>
-        </ProgressiveTable.Row>
-      </ProgressiveTable.Header>
-      <ProgressiveTable.Body>
-        <ProgressiveTable.Row>
-          <ProgressiveTable.Cell>foo</ProgressiveTable.Cell>
-          <ProgressiveTable.Cell>bar</ProgressiveTable.Cell>
-          <ProgressiveTable.Cell>Bam</ProgressiveTable.Cell>
-        </ProgressiveTable.Row>
-        <ProgressiveTable.Row>
-          <ProgressiveTable.Cell>whizz</ProgressiveTable.Cell>
-          <ProgressiveTable.Cell>woop</ProgressiveTable.Cell>
-          <ProgressiveTable.Cell>binary star system</ProgressiveTable.Cell>
-        </ProgressiveTable.Row>
-        <ProgressiveTable.Row>
-          <ProgressiveTable.Cell>1</ProgressiveTable.Cell>
-          <ProgressiveTable.Cell>2</ProgressiveTable.Cell>
-          <ProgressiveTable.Cell>3m</ProgressiveTable.Cell>
-        </ProgressiveTable.Row>
-      </ProgressiveTable.Body>
-    </ProgressiveTable.Table>
+    <table>
+      <thead>
+        <tr>
+          <th>Dave</th>
+          <th>Jamie</th>
+          <th>Joe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>foo</td>
+          <td>bar</td>
+          <td>Bam</td>
+        </tr>
+        <tr>
+          <td>whizz</td>
+          <td>woop</td>
+          <td>binary star system</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3m</td>
+        </tr>
+      </tbody>
+    </table>
   );
 
   const setupComponent = (overrides = {}, children = getChildren()) => {
@@ -68,10 +68,10 @@ describe('ProgressiveTable', () => {
     component.unmount();
   });
 
-  const tableRows = () => component.find(ProgressiveTable.Row);
+  const tableRows = () => component.find('tr');
   const minHeight = () => component.find('div').instance().style.minHeight;
 
-  describe('asable components', () => {
+  describe('component structure', () => {
     const table = () => component.find(Table);
     const header = () => component.find(Table.Header);
     const headerRow = () => header().find(Table.Row);
@@ -117,31 +117,23 @@ describe('ProgressiveTable', () => {
         setupComponent(
           { minimumRender: 10 },
           (
-            <ProgressiveTable.Table as={<Table as="div" />}>
-              <ProgressiveTable.Header as={<Table.Header />}>
-                <ProgressiveTable.Row as={<Table.Row />}>
-                  <ProgressiveTable.HeaderCell as={<Table.HeaderCell />}>Dave</ProgressiveTable.HeaderCell>
-                </ProgressiveTable.Row>
-              </ProgressiveTable.Header>
-              <ProgressiveTable.Body as={<Table.Body />}>
-                <ProgressiveTable.Row as={<Table.Row />}>
-                  <ProgressiveTable.Cell as={<Table.Cell />}>foo</ProgressiveTable.Cell>
-                </ProgressiveTable.Row>
-              </ProgressiveTable.Body>
-            </ProgressiveTable.Table>
+            <Table>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Dave</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell>foo</Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table>
           )
         );
       });
 
       renderStructureTests();
-
-      it('passes props to the asable component', () => {
-        expect(table()).toHaveProp('as', 'div');
-      });
-
-      it('renders asable components as prop passed to element in as prop', () => {
-        expect(table().find('div')).toHaveLength(1);
-      });
     });
 
     describe('when setting as props to semantic-ui table components', () => {
@@ -149,18 +141,18 @@ describe('ProgressiveTable', () => {
         setupComponent(
           { minimumRender: 10 },
           (
-            <ProgressiveTable.Table as={Table}>
-              <ProgressiveTable.Header as={Table.Header}>
-                <ProgressiveTable.Row as={Table.Row}>
-                  <ProgressiveTable.HeaderCell as={Table.HeaderCell}>Dave</ProgressiveTable.HeaderCell>
-                </ProgressiveTable.Row>
-              </ProgressiveTable.Header>
-              <ProgressiveTable.Body as={Table.Body}>
-                <ProgressiveTable.Row as={Table.Row}>
-                  <ProgressiveTable.Cell as={Table.Cell}>foo</ProgressiveTable.Cell>
-                </ProgressiveTable.Row>
-              </ProgressiveTable.Body>
-            </ProgressiveTable.Table>
+            <Table>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Dave</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell>foo</Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table>
           )
         );
       });
