@@ -7,6 +7,7 @@ module.exports = (config) => {
     testRunner: 'jest',
     mutator: 'javascript',
     coverageAnalysis: 'off',
+    maxConcurrentTestRunners: 6,
     plugins: [
       'stryker-jest-runner',
       'stryker-html-reporter',
@@ -18,6 +19,11 @@ module.exports = (config) => {
     reporter: ['dots', 'clear-text', 'html'],
     htmlReporter: {
       baseDir: 'test/results/mutation/html'
-    }
+    },
+     thresholds: {
+       high: 100,
+       low: 100,
+       break: 100
+     }
   });
 };
