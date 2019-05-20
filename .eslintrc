@@ -3,7 +3,8 @@
   "extends": [
     "airbnb-base",
     "plugin:flowtype/recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "prettier"
   ],
   "globals": {
     "fetch": true
