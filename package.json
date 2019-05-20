@@ -45,6 +45,10 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.0"
   },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "always"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
