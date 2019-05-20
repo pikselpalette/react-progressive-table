@@ -20,10 +20,10 @@ module.exports = (config) => {
     htmlReporter: {
       baseDir: 'test/results/mutation/html'
     },
-    thresholds: {
-      high: 100,
-      low: 100,
-      break: 97
-    }
+     thresholds: {
+       high: 100,
+       low: 100,
+       break: 100
+     }
   });
 };
