@@ -2,7 +2,7 @@ const path = require('path');
 const FlowPlugin = require('flow-babel-webpack-plugin');
 
 const plugins = [
-  'transform-runtime',
+  '@babel/transform-runtime',
   'add-module-exports',
   new FlowPlugin(),
   'transform-class-properties'
@@ -28,7 +28,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['babel-preset-env'],
+          presets: ['@babel/env'],
           plugins
         }
       }

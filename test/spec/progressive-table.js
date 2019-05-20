@@ -52,9 +52,9 @@ describe('ProgressiveTable', () => {
       ...overrides
     };
 
-    component = mount((
+    component = mount(
       <ProgressiveTable {...mockProps}>{children}</ProgressiveTable>
-    ));
+    );
 
     instance = component.instance();
   };
@@ -70,6 +70,16 @@ describe('ProgressiveTable', () => {
 
   const tableRows = () => component.find('tr');
   const minHeight = () => component.find('div').instance().style.minHeight;
+
+  describe('component state', () => {
+    it('has row state', () => {
+      expect(component.state().row).toEqual(1);
+    });
+
+    it('has minimum render state', () => {
+      expect(component.state().minimumRender).toEqual(1);
+    });
+  });
 
   describe('component structure', () => {
     const table = () => component.find(Table);
@@ -116,20 +126,18 @@ describe('ProgressiveTable', () => {
       beforeEach(() => {
         setupComponent(
           { minimumRender: 10 },
-          (
-            <Table>
-              <Table.Header>
-                <Table.Row>
-                  <Table.HeaderCell>Dave</Table.HeaderCell>
-                </Table.Row>
-              </Table.Header>
-              <Table.Body>
-                <Table.Row>
-                  <Table.Cell>foo</Table.Cell>
-                </Table.Row>
-              </Table.Body>
-            </Table>
-          )
+          <Table>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Dave</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell>foo</Table.Cell>
+              </Table.Row>
+            </Table.Body>
+          </Table>
         );
       });
 
@@ -140,20 +148,18 @@ describe('ProgressiveTable', () => {
       beforeEach(() => {
         setupComponent(
           { minimumRender: 10 },
-          (
-            <Table>
-              <Table.Header>
-                <Table.Row>
-                  <Table.HeaderCell>Dave</Table.HeaderCell>
-                </Table.Row>
-              </Table.Header>
-              <Table.Body>
-                <Table.Row>
-                  <Table.Cell>foo</Table.Cell>
-                </Table.Row>
-              </Table.Body>
-            </Table>
-          )
+          <Table>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Dave</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell>foo</Table.Cell>
+              </Table.Row>
+            </Table.Body>
+          </Table>
         );
       });
 
