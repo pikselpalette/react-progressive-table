@@ -74,7 +74,7 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-flowtype": "^3.9.0",
     "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-jest": "^22.5.1",
+    "eslint-plugin-jest": "^22.19.0",
     "eslint-plugin-react": "^7.9.1",
     "flow-babel-webpack-plugin": "^1.1.1",
     "flow-bin": "^0.98.1",
