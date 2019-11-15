@@ -82,7 +82,7 @@
     "jest": "^24.8.0",
     "jest-enzyme": "^7.0.2",
     "react": "^16.12.0",
-    "react-dom": "^16.4.0",
+    "react-dom": "^16.12.0",
     "semantic-ui-react": "^0.87.1",
     "stryker": "^0.35.1",
     "stryker-api": "^0.24.1",
