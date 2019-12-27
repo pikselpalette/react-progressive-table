@@ -94,6 +94,6 @@
     "webpack-cli": "^3.3.2"
   },
   "dependencies": {
-    "eslint-config-prettier": "^4.3.0"
+    "eslint-config-prettier": "^6.9.0"
   }
 }
