@@ -90,7 +90,7 @@
     "stryker-html-reporter": "^0.18.1",
     "stryker-javascript-mutator": "^0.14.1",
     "stryker-jest-runner": "^1.4.1",
-    "webpack": "^4.8.1",
+    "webpack": "^4.41.6",
     "webpack-cli": "^3.3.2"
   },
   "dependencies": {
